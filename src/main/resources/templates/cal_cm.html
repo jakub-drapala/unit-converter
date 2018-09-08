@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/converter_style.css"  th:href="@{/css/converter_style.css}" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>cal-cm converter</title>
+</head>
+<body>
+    <div id="content">
+        <h1>cal-cm / cm-cal</h1>
+        <label>Enter your value</label>
+
+        <form method="post">
+            <input type="number" name="value" step="0.01"/>
+            <input type="radio" name="unit" value="cal"/>cal
+            <input type="radio" name="unit" value="cm"/>cm
+            <input type="submit" value="convert"/>
+        </form>
+    </div>
+
+</body>
+</html>
