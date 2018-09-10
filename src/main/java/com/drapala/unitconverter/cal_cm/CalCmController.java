@@ -33,7 +33,7 @@ public class CalCmController {
     }
 
     @PostMapping("cal-cm-converter")
-    public String calCmProcess(@RequestParam(name = "value", defaultValue = "0") String value,
+    public String calCmProcess(@RequestParam(name = "value", defaultValue = "0") double value,
                                @RequestParam(name = "unit", defaultValue = "null") String unit) {
         log.info("Retrieved value = {}", value);
         log.info("Retrieved unit = {}", unit);

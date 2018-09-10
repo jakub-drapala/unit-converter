@@ -11,26 +11,35 @@ import org.springframework.stereotype.Service;
 @Service
 public class Converter {
 
-    private String value;
+    private double value;
     private String unit;
+    private String secondUnit;
 
 
-    public String message(){
-        if (unit == null){
-            return "";
+    public String getResult(){
+        if (this.unit.equals("null")){
+            return "You have to choose unit which want you converted";
         }
-        return value + " " + unit + " = ";
+
+        double convertedValue;
+        if (this.unit.equals("cal")) {
+            convertedValue = this.value * 2.53995;
+            this.secondUnit = "cm";
+        } else  {
+            convertedValue = this.value / 2.53995;
+            this.secondUnit = "cal";
+        }
+        return String.format("%.2f %s = %.2f %s",
+                this.value, this.unit, convertedValue, this.secondUnit);
     }
+
 
     @Override
     public String toString() {
         if (unit == null) {
             return "";
         }
-        final StringBuilder sb = new StringBuilder(value);
-        sb.append(" ").append(unit).append(" = ");/*
-        sb.append(", unit='").append(unit).append('\'');
-        sb.append('}');*/
-        return sb.toString();
+
+        return getResult();
     }
 }
