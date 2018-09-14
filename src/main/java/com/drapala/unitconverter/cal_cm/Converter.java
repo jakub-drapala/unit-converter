@@ -1,6 +1,9 @@
 package com.drapala.unitconverter.cal_cm;
 
+import com.drapala.unitconverter.entity.Converted;
+import com.drapala.unitconverter.repository.ConvertedRepository;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,12 +14,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class Converter {
 
+    @Autowired
+    private ConvertedRepository repository;
+
     private double value;
     private String unit;
     private String secondUnit;
 
 
     public String getResult(){
+        String result;
         if (this.unit.equals("null")){
             return "You have to choose unit which want you converted";
         }
@@ -29,8 +36,10 @@ public class Converter {
             convertedValue = this.value / 2.53995;
             this.secondUnit = "cal";
         }
-        return String.format("%.2f %s = %.2f %s",
+        result = String.format("%.2f %s = %.2f %s",
                 this.value, this.unit, convertedValue, this.secondUnit);
+        repository.save(new Converted(result));
+        return result;
     }
 
 

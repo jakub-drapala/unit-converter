@@ -1,6 +1,8 @@
 package com.drapala.unitconverter.cal_cm;
 
 
+import com.drapala.unitconverter.entity.Converted;
+import com.drapala.unitconverter.repository.ConvertedRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +41,7 @@ public class CalCmController {
         log.info("Retrieved unit = {}", unit);
         converter.setValue(value);
         converter.setUnit(unit);
+
         return  "redirect:/" + "cal-cm-converter";
 
     }
