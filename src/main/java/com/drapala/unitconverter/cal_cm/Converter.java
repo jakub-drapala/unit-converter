@@ -52,7 +52,7 @@ public class Converter {
     }
 
     public void saveResult() {
-        repository.save(new Converted(getResult()));
+        repository.save(new Converted(getResult(), "cal-cm"));
 
     }
 

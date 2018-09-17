@@ -16,8 +16,11 @@ public class Converted {
     @Getter
     private String result;
 
-    public Converted(String result) {
+    private String category;
+
+    public Converted(String result, String category) {
         this.result = result;
+        this.category=category;
     }
 
     protected Converted() {

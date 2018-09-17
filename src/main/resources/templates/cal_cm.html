@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link href="../static/css/converter_style.css"  th:href="@{/css/converter_style.css}" rel="stylesheet"/>
+<link href="../static/css/converter_style.css"  th:href="@{css/converter_style.css}" rel="stylesheet"/>
 <head>
     <meta charset="UTF-8">
     <title>cal-cm converter</title>
 </head>
 <body>
     <div id="content">
-        <h1>cal-cm / cm-cal</h1>
-        <label>Enter your value</label>
+        <div id="header">
+            <h2>cal-cm / cm-cal</h2>
+            <label>Enter your value:</label>
+        </div>
 
         <form method="post">
             <input type="number" name="value" step="0.01"/>
@@ -17,7 +19,9 @@
             <input type="submit" value="convert"/>
 
         </form>
-        <p th:text="${result}">Result Message</p>
+        <div id="result">
+            <p th:text="${result}">Result Message</p>
+        </div>
         <div id="history">
             Your previous requests:
             <p th:text="${history}"></p>
