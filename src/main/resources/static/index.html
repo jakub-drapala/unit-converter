@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Unit converter</title>
@@ -25,6 +25,10 @@
             <div style="clear: both;"></div>
         </a>
     </div>
+    <div id="result">
+        <p th:text="${result}">Result Message</p>
+    </div>
+
 </div>
 
 </body>

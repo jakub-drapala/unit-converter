@@ -12,13 +12,22 @@
             <label>Enter your value:</label>
         </div>
 
-        <form method="post">
-            <input type="number" name="value" step="0.01"/>
-            <input type="radio" name="unit" value="cal"/>cal
-            <input type="radio" name="unit" value="cm"/>cm
-            <input type="submit" value="convert"/>
+        <div style="float: left;">
+            <form method="post">
+                <input type="number" name="value" step="0.01"/>
+                <input type="radio" name="unit" value="cal"/>cal
+                <input type="radio" name="unit" value="cm"/>cm
+                <input type="submit" value="convert"/>
+            </form>
+        </div>
 
-        </form>
+        <div id= "backbutton" style="float: left;">
+            <a href="../"><input type="submit" value="back"/></a>
+        </div>
+
+        <div style="clear: both"></div>
+
+
         <div id="result">
             <p th:text="${result}">Result Message</p>
         </div>
