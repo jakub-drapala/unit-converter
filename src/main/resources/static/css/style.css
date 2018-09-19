@@ -38,12 +38,12 @@ body{
 }
 
 
-
 a.link{
     color: white;
     text-decoration: none;
 }
 
 #result {
+    margin-top: 80px;
     color: white;
 }
