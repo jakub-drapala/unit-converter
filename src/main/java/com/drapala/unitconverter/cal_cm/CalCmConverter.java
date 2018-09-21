@@ -1,8 +1,10 @@
 package com.drapala.unitconverter.cal_cm;
 
+import com.drapala.unitconverter.Converter;
 import com.drapala.unitconverter.entity.Converted;
 import com.drapala.unitconverter.repository.ConvertedRepository;
 import lombok.Data;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +19,7 @@ import java.util.List;
 @Slf4j
 @Data
 @Service
-public class Converter {
+public class CalCmConverter implements Converter {
 
     @Autowired
     private ConvertedRepository repository;
@@ -25,7 +27,6 @@ public class Converter {
     private double value;
     private String unit;
     private String secondUnit;
-    ArrayList<String> history = new ArrayList<>();
 
 
     public String getResult(){
