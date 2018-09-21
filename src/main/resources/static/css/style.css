@@ -26,15 +26,15 @@ body{
 #cal:hover{
     background-color: #1073b1;
 }
-#time{
+#distance{
     margin-left: 50px;
     float: left;
-    background-color: #EE1AC3;
+    background-color: #ff6600;
     text-align: center;
     width: 150px;
 }
-#time:hover{
-    background-color: #71a526;
+#distance:hover{
+    background-color:#cc5200;
 }
 
 

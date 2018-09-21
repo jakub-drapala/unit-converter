@@ -1,27 +1,30 @@
-package com.drapala.unitconverter.cal_cm;
+package com.drapala.unitconverter.mil_km;
+
 
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by maczi on 2018-09-08.
  */
 @Slf4j
 @Controller
-public class CalCmController {
+public class MilKmController {
 
-    private final Converter converter;
+    private final MilKmConverter converter;
 
     @Autowired
-    public CalCmController(Converter converter) {
+    public MilKmController(MilKmConverter converter) {
         this.converter = converter;
     }
 
-    @GetMapping("cal-cm-converter")
+    @GetMapping("mil-km-converter")
     public String calCm(Model model) {
         model.addAttribute("result", converter);
         log.info("result = {}", model);
@@ -32,10 +35,10 @@ public class CalCmController {
             history = converter.getRepository().getLastThreeConverted();
         }
         model.addAttribute("history", history );
-        return "cal_cm";
+        return "mil_km";
     }
 
-    @PostMapping("cal-cm-converter")
+    @PostMapping("mil-km-converter")
     public String calCmProcess(@RequestParam(name = "value", defaultValue = "0") double value,
                                @RequestParam(name = "unit", defaultValue = "null") String unit) {
         log.info("Retrieved value = {}", value);
@@ -45,10 +48,10 @@ public class CalCmController {
         if (!unit.equals("null")){
             converter.saveResult();
         }
-        return  "redirect:/" + "cal-cm-converter";
+        return  "redirect:/" + "mil-km-converter";
     }
 
-    @GetMapping("goHome")
+    @GetMapping("goHome2")
     public String goHome() {
         converter.setValue(0);
         log.info("Now value ={}", converter.getValue());

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/converter_style.css"  th:href="@{css/converter_style.css}" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>mil-km converter</title>
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <h2>mil(USA)-km / km-mil(USA)</h2>
+            <label>Enter your value:</label>
+        </div>
+
+        <div action="mil-km-converter" style="float: left;">
+            <form method="post">
+                <input type="number" name="value" step="0.01"/>
+                <input type="radio" name="unit" value="mil"/>mil
+                <input type="radio" name="unit" value="km"/>km
+                <input type="submit" value="convert"/>
+            </form>
+        </div>
+
+
+            <div id= "backbutton" style="float: left;">
+                <a href="goHome2">
+                    <input type="submit" value="back"/>
+                </a>
+            </div>
+
+
+        <div style="clear: both"></div>
+
+
+        <div id="result">
+            <p th:text="${result}">Result Message</p>
+        </div>
+        <div id="history">
+            Your previous requests:
+            <p th:text="${history}"></p>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
