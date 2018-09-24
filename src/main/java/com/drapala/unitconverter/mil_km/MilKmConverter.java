@@ -1,5 +1,6 @@
 package com.drapala.unitconverter.mil_km;
 
+import com.drapala.unitconverter.Converter;
 import com.drapala.unitconverter.entity.Converted;
 import com.drapala.unitconverter.repository.ConvertedRepository;
 import lombok.Data;
@@ -15,10 +16,10 @@ import java.util.ArrayList;
 @Slf4j
 @Data
 @Service
-public class MilKmConverter {
+public class MilKmConverter implements Converter {
 
-    @Autowired
-    private ConvertedRepository repository;
+//    @Autowired
+//    private ConvertedRepository repository;
 
     private double value;
     private String unit;
@@ -49,10 +50,10 @@ public class MilKmConverter {
         return result;
     }
 
-    public void saveResult() {
-        repository.save(new Converted(getResult(), "mil-km"));
-
-    }
+//    public void saveResult() {
+//        repository.save(new Converted(getResult(), "mil-km"));
+//
+//    }
 
 
 

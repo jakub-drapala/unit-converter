@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * Created by maczi on 2018-09-08.
  */
+
+/*
 @Slf4j
-@Controller
+@Controller*/
 public class MilKmController {
 
-    private final MilKmConverter converter;
+    /*private final MilKmConverter converter;
 
     @Autowired
     public MilKmController(MilKmConverter converter) {
@@ -58,7 +60,7 @@ public class MilKmController {
         converter.setUnit(null);
         log.info("Now unit = {}", converter.getUnit());
         return "redirect:/";
-    }
+    }*/
 
 
 

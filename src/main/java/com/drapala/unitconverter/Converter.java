@@ -18,8 +18,10 @@ public interface Converter {
 
     String getResult();
 
-    void saveResult();
+  //  void saveResult();
 
-    ConvertedRepository getRepository();
+//    ConvertedRepository getRepository();
+
+
 
 }
