@@ -5,49 +5,38 @@ import com.drapala.unitconverter.entity.Converted;
 import com.drapala.unitconverter.repository.ConvertedRepository;
 import lombok.Data;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by maczi on 2018-09-08.
  */
 @Slf4j
+@Data
 @Service
-@Primary
-public class CalCmConverter {
+public class CalCmConverter implements Converter {
 
+    @Autowired
+    private ConvertedRepository repository;
 
-    @Setter
-    @Getter
     private double value;
-    private String unit = "temp";
-
-    @Setter
-    @Getter
+    private String unit;
     private String secondUnit;
-
-
-    public Optional<String> getUnit() {
-        return Optional.ofNullable(unit);
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
 
 
     public String getResult(){
         log.info("Method: getResult() is running.");
 
         String result;
+
+        if (this.unit.equals("null")){
+            return "You have to choose unit which want you converted";
+        }
 
         double convertedValue;
         if (this.unit.equals("cal")) {
@@ -62,6 +51,12 @@ public class CalCmConverter {
 
         return result;
     }
+
+    public void saveResult() {
+        repository.save(new Converted(getResult(), "cal-cm"));
+
+    }
+
 
 
     @Override
