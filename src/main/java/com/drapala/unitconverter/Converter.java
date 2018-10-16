@@ -12,10 +12,6 @@ public interface Converter {
 
     String getUnit();
 
-    void setSecondUnit(String secondUnit);
-
-    String getSecondUnit();
-
     String getResult();
 
     void saveResult();

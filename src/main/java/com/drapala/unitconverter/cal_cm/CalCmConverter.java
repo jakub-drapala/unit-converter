@@ -3,8 +3,7 @@ package com.drapala.unitconverter.cal_cm;
 import com.drapala.unitconverter.Converter;
 import com.drapala.unitconverter.entity.Converted;
 import com.drapala.unitconverter.repository.ConvertedRepository;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +25,9 @@ public class CalCmConverter implements Converter {
 
     private double value;
     private String unit;
+
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     private String secondUnit;
 
 

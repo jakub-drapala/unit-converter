@@ -20,7 +20,7 @@ public class homePageController {
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("result",repository.getActualAndLastTwoConverted());
+        model.addAttribute("history",repository.getHistory());
         return "index";
     }
 

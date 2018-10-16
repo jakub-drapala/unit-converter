@@ -25,9 +25,9 @@
             <div style="clear: both;"></div>
         </a>
     </div>
-    <div id="result">
-        Your previous requests:
-        <p th:text="${result}">Result Message</p>
+    <p>Last three requests</p>
+    <div th:if="${history?.size() gt 0}" th:each="entity : ${history}">
+        <p th:if="${entityStat.index lt 3}"><span th:text="${entity}"></span></p>
     </div>
 
 </div>

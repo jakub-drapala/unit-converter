@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MilKmController {
 
     private final MilKmConverter converter;
+    private boolean showLastConverted;
 
     @Autowired
     public MilKmController(MilKmConverter converter) {
@@ -30,11 +31,12 @@ public class MilKmController {
         log.info("result = {}", model);
         String history;
         if (converter.getUnit() == null || converter.getUnit().equals("null")){
-             history = converter.getRepository().getActualAndLastTwoConverted();
+             showLastConverted = true;
         } else {
-            history = converter.getRepository().getLastThreeConverted();
+            showLastConverted = false;
         }
-        model.addAttribute("history", history );
+        model.addAttribute("showLast", showLastConverted );
+        model.addAttribute("wholeHistory", converter.getRepository().getHistory());
         return "mil_km";
     }
 

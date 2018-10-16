@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class CalCmController {
 
     private final Converter converter;
+    private boolean showLastConverted;
 
     @Autowired
     public CalCmController(Converter converter) {
@@ -26,13 +27,13 @@ public class CalCmController {
     public String calCm(Model model) {
         model.addAttribute("result", converter);
         log.info("result = {}", model);
-        String history;
         if (converter.getUnit() == null || converter.getUnit().equals("null")){
-             history = converter.getRepository().getActualAndLastTwoConverted();
+            showLastConverted = true;
         } else {
-            history = converter.getRepository().getLastThreeConverted();
+            showLastConverted = false;
         }
-        model.addAttribute("history", history );
+        model.addAttribute("showLast", showLastConverted);
+        model.addAttribute("wholeHistory", converter.getRepository().getHistory());
         return "cal_cm";
     }
 

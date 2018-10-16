@@ -2,7 +2,10 @@ package com.drapala.unitconverter.mil_km;
 
 import com.drapala.unitconverter.entity.Converted;
 import com.drapala.unitconverter.repository.ConvertedRepository;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +25,11 @@ public class MilKmConverter {
 
     private double value;
     private String unit;
+
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     private String secondUnit;
+
     ArrayList<String> history = new ArrayList<>();
 
 

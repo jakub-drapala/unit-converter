@@ -35,9 +35,11 @@
         <div id="result">
             <p th:text="${result}">Result Message</p>
         </div>
-        <div id="history">
-            Your previous requests:
-            <p th:text="${history}"></p>
+
+        <p>Last three requests</p>
+        <div th:if="${wholeHistory?.size() gt 0}" th:each="entity : ${wholeHistory}">
+            <block th:if="${showLast} "><p th:if="${entityStat.index lt 3}"><span th:text="${entity}"></span></p></block>
+            <block th:unless="${showLast} "><p th:if="${entityStat.index gt 0 and entityStat.index lt 4}"><span th:text="${entity}"></span></p></block>
         </div>
 
     </div>
