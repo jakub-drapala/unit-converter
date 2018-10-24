@@ -36,7 +36,7 @@
             <p th:text="${result}">Result Message</p>
         </div>
 
-        <p>Last three requests</p>
+        <p>Previous 3 query:</p>
         <div th:if="${wholeHistory?.size() gt 0}" th:each="entity : ${wholeHistory}">
             <block th:if="${showLast} "><p th:if="${entityStat.index lt 3}"><span th:text="${entity}"></span></p></block>
             <block th:unless="${showLast} "><p th:if="${entityStat.index gt 0 and entityStat.index lt 4}"><span th:text="${entity}"></span></p></block>

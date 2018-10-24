@@ -25,7 +25,7 @@
             <div style="clear: both;"></div>
         </a>
     </div>
-    <p>Last three requests</p>
+    <p>Previous 3 query:</p>
     <div th:if="${history?.size() gt 0}" th:each="entity : ${history}">
         <p th:if="${entityStat.index lt 3}"><span th:text="${entity}"></span></p>
     </div>

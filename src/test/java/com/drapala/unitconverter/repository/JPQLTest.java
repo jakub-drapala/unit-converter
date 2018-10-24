@@ -64,7 +64,7 @@ public class JPQLTest {
         logger.info("Result: {}", resultList.size());
     }
 
-    @Test
+/*    @Test
     public void useParameterGetString() {
         Long a = 10001L;
         Query query = em.createQuery("Select c.result From Converted c where id = :a").
@@ -72,7 +72,7 @@ public class JPQLTest {
         String resultList = (String) query.getSingleResult();
         logger.info("Result: {}", resultList);
 
-    }
+    }*/
 
     @Test
     public void checkArrayList() {
